@@ -9,6 +9,49 @@ package projetjava;
  *
  * @author salomeroland
  */
-public class AppChiro {
-    
+public class AppChiro extends App {
+
+    private int duration; //durée par défaut (20 min) ou durée spécifique
+
+    public AppChiro(String patient, String doc, int d, int m, int y, int hour, int min, int dur) {
+
+        super(patient, doc, d, m, y, hour, min);
+        duration = dur;
+
+    }
+
+    public AppChiro(String patient, String doc, int d, int m, int y, int hour, int min) {
+
+        super(patient, doc, d, m, y, hour, min);
+        duration = 45;
+
+    }
+
+    public String toString() {
+
+        String retour;
+        retour = super.toString();
+        retour = retour + ", duration: " + duration + " min";
+        return retour;
+
+    }
+
+    public int getDuration() {
+        return duration;
+    }
+
+    public int finalHour(App a) {
+
+        int min = 0;
+        int hour = a.getDebutHour();
+        min = a.getDebutMin() + duration;
+        while (min >= 60) {
+            hour++;
+            min = min - 60;
+        }
+        return hour;
+
+    }
+
 }
+

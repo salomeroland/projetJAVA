@@ -9,6 +9,25 @@ package projetjava;
  *
  * @author salomeroland
  */
-public class AppCalPhys1 {
+public class AppCalPhys1 extends AppCalendar{
+
+    protected TreeSet<AppPhys> calendarPhys1;
+
+    public AppCalPhys1() {
+
+        calendarPhys1 = new TreeSet<AppPhys>();
+
+    }
     
+    public void addApp(AppPhys a) {
+
+        calendarPhys1.add(a);
+        
+    }
+    
+    public void delAppPhys1(AppPhys a){
+        
+        calendarPhys1.remove(a);
+        
+    }
 }

@@ -9,6 +9,25 @@ package projetjava;
  *
  * @author salomeroland
  */
-public class AppCalDent {
+public class AppCalDent extends AppCalendar{
+
+    protected TreeSet<AppDent> calendarDent;
+
+    public AppCalDent() {
+
+        calendarDent = new TreeSet<AppDent>();
+
+    }
     
+    public void addApp(AppDent a) {
+
+        calendarDent.add(a);
+        
+    }
+        public void delApp(AppDent a){
+        
+        calendarDent.remove(a);
+        
+    }
 }
+
