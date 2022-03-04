@@ -13,14 +13,14 @@ public class AppDent extends App {
 
     protected int duration; //durée par défaut (30 min) ou durée spécifique
 
-    public AppDent(String patient, String doc, int d, int m, int y, int hour, int min, int dur) {
+    public AppDent(String patient, String doc, int d, int m, int y, int hour, int min, int dur) throws AppException{
 
         super(patient, doc, d, m, y, hour, min);
         duration = dur;
 
     }
 
-    public AppDent(String patient, String doc, int d, int m, int y, int hour, int min) {
+    public AppDent(String patient, String doc, int d, int m, int y, int hour, int min) throws AppException{
 
         super(patient, doc, d, m, y, hour, min);
         duration = 30;
@@ -40,6 +40,7 @@ public class AppDent extends App {
         return duration;
     }
 
+    @Override
     public int finalHour(App a) {
 
         int min = 0;

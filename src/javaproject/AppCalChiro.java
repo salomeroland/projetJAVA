@@ -12,7 +12,9 @@ import java.util.TreeSet;
  *
  * @author Doriane Lami
  */
-public class AppCalChiro extends TreeSet<AppChiro> {
+public class AppCalChiro extends TreeSet<AppChiro> { 
+    
+    public AppCalChiro() throws AppException {}
 
     public String toString() {
         String ret = "";
@@ -31,7 +33,7 @@ public class AppCalChiro extends TreeSet<AppChiro> {
         this.remove(a);
     }
 
-    public void modApp(AppChiro a) {     // a = rdv qui doit être modifié
+    public void modApp(AppChiro a) throws AppException {     // a = rdv qui doit être modifié
 
         this.delApp(a);     //pour pouvoir modifier un rdv on commence par supprimer sa version originale du calendrier
 

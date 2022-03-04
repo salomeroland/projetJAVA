@@ -19,7 +19,14 @@ public abstract class App implements Comparable<App> { // Classe rendez-vous
     private int month;
     private int day;
 
-    public App(String patient, String doc, int d, int m, int y, int hour, int min) {
+    public App(String patient, String doc, int d, int m, int y, int hour, int min) throws AppException {
+
+        if (hour < 8) {  //rdv avant 8h
+            throw new AppException("The first appointement of the day starts at 8 AM.");
+        }
+        if (finalHour(this) >= 20) {  //rdv après 20h
+            throw new AppException("The last appointement of the day ends at 8 PM.");
+        }
 
         paName = patient;
         docName = doc;
@@ -86,7 +93,7 @@ public abstract class App implements Comparable<App> { // Classe rendez-vous
     public abstract int finalMin(App a);
 
     public abstract String finalTime(App a);
-
+    
     public int getDebutHour() {
         return debutHour;
     }

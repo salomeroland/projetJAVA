@@ -13,14 +13,14 @@ public class AppChiro extends App {
 
     private int duration; //durée par défaut (20 min) ou durée spécifique
 
-    public AppChiro(String patient, String doc, int d, int m, int y, int hour, int min, int dur) {
+    public AppChiro(String patient, String doc, int d, int m, int y, int hour, int min, int dur) throws AppException{
 
         super(patient, doc, d, m, y, hour, min);
         duration = dur;
 
     }
 
-    public AppChiro(String patient, String doc, int d, int m, int y, int hour, int min) {
+    public AppChiro(String patient, String doc, int d, int m, int y, int hour, int min) throws AppException{
 
         super(patient, doc, d, m, y, hour, min);
         duration = 45;
@@ -40,6 +40,7 @@ public class AppChiro extends App {
         return duration;
     }
 
+    @Override
     public int finalHour(App a) {
 
         int min = 0;

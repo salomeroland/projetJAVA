@@ -13,18 +13,18 @@ public class AppPhys extends App { //Rendez-vous généraliste
 
     private int duration; //durée par défaut (20 min) ou durée spécifique
 
-    public AppPhys(String patient, String doc, int d, int m, int y, int hour, int min, int dur) {
+    public AppPhys(String patient, String doc, int d, int m, int y, int hour, int min, int dur) throws AppException{
 
         super(patient, doc, d, m, y, hour, min);
         duration = dur;
-
+        
     }
 
-    public AppPhys(String patient, String doc, int d, int m, int y, int hour, int min) {
+    public AppPhys(String patient, String doc, int d, int m, int y, int hour, int min) throws AppException{
 
         super(patient, doc, d, m, y, hour, min);
         duration = 20;
-
+        
     }
 
     public String toString() {
@@ -40,6 +40,7 @@ public class AppPhys extends App { //Rendez-vous généraliste
         return duration;
     }
 
+    @Override
     public int finalHour(App a) {
 
         int min = 0;

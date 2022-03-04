@@ -39,7 +39,7 @@ public class AppCalDent extends TreeSet<AppDent> {
         this.remove(a);
     }
 
-    public void modApp(AppDent a) {     // a = rdv qui doit être modifié
+    public void modApp(AppDent a) throws AppException {     // a = rdv qui doit être modifié
 
         this.delApp(a);     //pour pouvoir modifier un rdv on commence par supprimer sa version originale du calendrier
 

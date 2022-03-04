@@ -24,6 +24,17 @@ public abstract class AppCalendar extends TreeSet<App> {
 //        return "Calendar : " + this + "/n";
 //    }
     
+    public AppCalendar() throws AppException {
+        for (App app : this) {
+            if (app.getDebutHour() < 8) {  //rdv avant 8h
+                throw new AppException("The first appointement of the day starts at 8 AM");
+            }
+            if (app.finalHour(app) >= 20) {  //rdv après 20h
+                throw new AppException("The last appointement of the day ends at 8 PM");
+            }
+        }
+    }
+
     public String toString() {
         String ret = "";
         System.out.println("Calendrier : ");

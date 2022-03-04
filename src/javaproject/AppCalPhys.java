@@ -12,7 +12,9 @@ import java.util.TreeSet;
  *
  * @author Doriane Lami
  */
-public class AppCalPhys extends TreeSet<AppPhys> {
+public class AppCalPhys extends TreeSet<AppPhys> { 
+    
+    public AppCalPhys() throws AppException {}
 
     public String toString() {
         String ret = "";
@@ -31,7 +33,7 @@ public class AppCalPhys extends TreeSet<AppPhys> {
         this.remove(a);
     }
 
-    public void modApp(AppPhys a) {     // a = rdv qui doit être modifié
+    public void modApp(AppPhys a) throws AppException{     // a = rdv qui doit être modifié
 
         this.delApp(a);     //pour pouvoir modifier un rdv on commence par supprimer sa version originale du calendrier
 
