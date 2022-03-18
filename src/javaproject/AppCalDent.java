@@ -14,14 +14,9 @@ import java.util.TreeSet;
  */
 public class AppCalDent extends TreeSet<AppDent> {
 
-//    protected TreeSet<AppDent> calendarDent;
-//
-//    public AppCalDent() {
-//
-//        calendarDent = new TreeSet<AppDent>();
-//
-//    }
-    
+    public AppCalDent() throws AppException {}
+
+    @Override
     public String toString() {
         String ret = "";
         System.out.println("Calendrier Dent: ");

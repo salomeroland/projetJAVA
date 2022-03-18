@@ -11,13 +11,13 @@ package javaproject;
  */
 public class AppPhys extends App { //Rendez-vous généraliste
 
-    private int duration; //durée par défaut (20 min) ou durée spécifique
+
+    //durée par défaut (20 min) ou durée spécifique
 
     public AppPhys(String patient, String doc, int d, int m, int y, int hour, int min, int dur) throws AppException{
 
-        super(patient, doc, d, m, y, hour, min);
-        duration = dur;
-        
+        super(patient, doc, d, m, y, hour, min, dur);
+
     }
 
     public AppPhys(String patient, String doc, int d, int m, int y, int hour, int min) throws AppException{
@@ -33,41 +33,6 @@ public class AppPhys extends App { //Rendez-vous généraliste
         retour = super.toString();
         retour = retour + ", duration: " + duration + " min";
         return retour;
-
-    }
-
-    public int getDuration() {
-        return duration;
-    }
-
-    @Override
-    public int finalHour(App a) {
-
-        int min = 0;
-        int hour = a.getDebutHour();
-        min = a.getDebutMin() + duration;
-        while (min >= 60) {
-            hour++;
-            min = min - 60;
-        }
-        return hour;
-
-    }
-
-    public int finalMin(App a) {
-
-        int min = 0;
-        int hour = a.getDebutHour();
-        min = a.getDebutMin() + duration;
-        while (min >= 60) {
-            hour++;
-            min = min - 60;
-        }
-        return min;
-    }
-
-    public String finalTime(App a) {
-        return finalHour(a) + ":" + finalMin(a);
 
     }
 

@@ -13,7 +13,7 @@ import java.util.TreeSet;
  * @author Doriane Lami
  */
 public class AppCalChiro extends TreeSet<AppChiro> { 
-    
+
     public AppCalChiro() throws AppException {}
 
     public String toString() {

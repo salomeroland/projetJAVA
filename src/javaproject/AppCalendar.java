@@ -5,39 +5,31 @@
  */
 package javaproject;
 
-import java.util.Scanner;
 import java.util.TreeSet;
 
 /**
  *
  * @author Doriane Lami
  */
-public abstract class AppCalendar extends TreeSet<App> {
+public abstract class AppCalendar extends TreeSet<App> {     //Peut être viré
 
-//       protected TreeSet<App> calendar;  
-//    public AppCalendar() {
-//
-//        calendar = new TreeSet<App>();  
-//
-//    }
-//    public String toString() {
-//        return "Calendar : " + this + "/n";
-//    }
-    
-    public AppCalendar() throws AppException {
-        for (App app : this) {
-            if (app.getDebutHour() < 8) {  //rdv avant 8h
-                throw new AppException("The first appointement of the day starts at 8 AM");
-            }
-            if (app.finalHour(app) >= 20) {  //rdv après 20h
-                throw new AppException("The last appointement of the day ends at 8 PM");
+    public void checkValidity(App check) throws AppException {
+
+        for (App app : this) {    // rdv qui se chevauchent
+            //on compare le rdv app avec le suivant (this.lower(app)) dans la treeset puisqu'ils sont triés par ordre chronologique
+            if ((app.getYear() == (this.lower(app)).getYear()) && (app.getMonth() == (this.lower(app)).getMonth()) && (app.getDay() == (this.lower(app)).getDay())) {
+                if (app.finalHour(app) > (this.lower(app)).getDebutHour()) {
+                    throw new AppException("Two appointements can't take place at the same time");
+                } else if ((app.finalHour(app) == (this.lower(app)).getDebutHour()) && (app.finalMin(app) >= (this.lower(app)).getDebutMin())) {
+                    throw new AppException("Two appointements can't take place at the same time");
+                }
             }
         }
     }
 
     public String toString() {
         String ret = "";
-        System.out.println("Calendrier : ");
+        System.out.println("Calendar : ");
         for (App app : this) {
             System.out.println(app);
         }
