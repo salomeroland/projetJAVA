@@ -9,7 +9,7 @@ package javaproject;
  *
  * @author Doriane Lami
  */
-public class AppDent extends App {
+public class AppDent extends Appointment {
 
     //durée par défaut (30 min) ou durée spécifique
 

@@ -9,7 +9,7 @@ package javaproject;
  *
  * @author Doriane Lami
  */
-public class AppChiro extends App {
+public class AppChiro extends Appointment {
 
      //durée par défaut (20 min) ou durée spécifique
 

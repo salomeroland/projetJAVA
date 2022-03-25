@@ -12,24 +12,24 @@ import java.util.TreeSet;
  *
  * @author Doriane Lami
  */
-public class AppCalPhys extends TreeSet<AppPhys> { 
+public class CalendarPhysician extends TreeSet<AppPhys> { 
     
-    public AppCalPhys() throws AppException {}
+    public CalendarPhysician() throws AppException {}
 
     public String toString() {
         String ret = "";
         System.out.println("Calendrier Phys: ");
-        for (App app : this) {
+        for (Appointment app : this) {
             System.out.println(app);
         }
         return ret;
     }
 
-    public void addApp(AppPhys a) {
+    public void addApp(AppPhys a) throws AppException{
         this.add(a);
     }
 
-    public void delApp(AppPhys a) {
+    public void delApp(AppPhys a) throws AppException{
         this.remove(a);
     }
 

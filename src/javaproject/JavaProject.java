@@ -24,19 +24,21 @@ public class JavaProject {
         
 //        // rdv Dent + calendrier Dent
 
-        AppCalDent calDent = new AppCalDent();     //création calendrier
-        AppDent rdvDent1 = new AppDent("Calmettes", "Charon", 10, 3, 2021, 9, 20);
-        System.out.println(rdvDent1);    //affiche rdv1
-        System.out.println(rdvDent1.finalTime(rdvDent1));   //heure de fin rdv1
-        
-        AppDent rdvDent2 = new AppDent("Pistre", "Sombart", 10, 3, 2021, 9, 10, 20);
-        System.out.println(rdvDent2);   //affiche rdv2
-        System.out.println(rdvDent2.finalTime(rdvDent2));   //heure de fin rdv2
-        calDent.addApp(rdvDent1);   //ajout des rdvs au calendrier
-        calDent.addApp(rdvDent2);
-        System.out.println(calDent);    //affiche calendrier
+//        CalendarDentist calDent = new CalendarDentist();     //création calendrier
+//        AppDent rdvDent1 = new AppDent("Calmettes", "Charon", 10, 3, 2021, 9, 20);
+//        System.out.println(rdvDent1);    //affiche rdv1
+//        System.out.println(rdvDent1.finalTime(rdvDent1));   //heure de fin rdv1
+//        
+//        AppDent rdvDent2 = new AppDent("Pistre", "Sombart", 10, 3, 2021, 9, 10, 20);
+//        System.out.println(rdvDent2);   //affiche rdv2
+//        System.out.println(rdvDent2.finalTime(rdvDent2));   //heure de fin rdv2
+//        calDent.addApp(rdvDent1);   //ajout des rdvs au calendrier
+//        calDent.addApp(rdvDent2);
+//        System.out.println(calDent);    //affiche calendrier
 //        calDent.modApp(rdvDent);      //modifier calendrier
 //        System.out.println(calDent);      //affiche calendrier modifié
+        Appointment app = Appointment.newAppointment();
+        System.out.println(app);
     }
     
 }

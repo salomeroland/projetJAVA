@@ -12,28 +12,34 @@ import java.util.TreeSet;
  *
  * @author Doriane Lami
  */
-public class AppCalChiro extends TreeSet<AppChiro> { 
+public class CalendarDentist extends TreeSet<AppDent> {
 
-    public AppCalChiro() throws AppException {}
+    public CalendarDentist() throws AppException {
+    }
 
+    @Override
     public String toString() {
         String ret = "";
-        System.out.println("Calendrier Chiro: ");
-        for (App app : this) {
+        System.out.println("Calendrier Dentist: ");
+        for (Appointment app : this) {
             System.out.println(app);
         }
         return ret;
     }
 
-    public void addApp(AppChiro a) {
-        this.add(a);
+    public void addApp(AppDent a) throws AppException {
+        if (isCompatible(a)) {
+            this.add(a);
+        } else {
+            throw new AppException("Two appointments can't take place at the same time");
+        }
     }
 
-    public void delApp(AppChiro a) {
+    public void delApp(AppDent a) throws AppException {
         this.remove(a);
     }
 
-    public void modApp(AppChiro a) throws AppException {     // a = rdv qui doit être modifié
+    public void modApp(AppDent a) throws AppException {     // a = rdv qui doit être modifié
 
         this.delApp(a);     //pour pouvoir modifier un rdv on commence par supprimer sa version originale du calendrier
 
@@ -42,7 +48,7 @@ public class AppCalChiro extends TreeSet<AppChiro> {
 
         System.out.println("What do you want to modifie ? (practitioner / patient / date / time / duration)");
         String mod = sc.next();
-        AppChiro ret = null;     // ret = rdv modifié
+        AppDent ret = null;     // ret = rdv modifié
 
         switch (mod) {  // on regarde la valeur de mod, et ensuite on va regarder si un cas correspond
 
@@ -50,7 +56,7 @@ public class AppCalChiro extends TreeSet<AppChiro> {
             case ("practitioner"):
                 System.out.println("Who is the practitioner ? (Phys1 / Phys2 / Dent / Chiro)");
                 String docName = sc.next();
-                ret = new AppChiro(a.getPaName(), docName, a.getDay(), a.getMonth(), a.getYear(), a.getDebutHour(), a.getDebutMin());
+                ret = new AppDent(a.getPaName(), docName, a.getDay(), a.getMonth(), a.getYear(), a.getDebutHour(), a.getDebutMin());
                 this.addApp(ret);
                 break;
 
@@ -58,7 +64,7 @@ public class AppCalChiro extends TreeSet<AppChiro> {
             case ("patient"):
                 System.out.println("What is the patient's name ?");
                 String paName = sc.next();
-                ret = new AppChiro(paName, a.getDocName(), a.getDay(), a.getMonth(), a.getYear(), a.getDebutHour(), a.getDebutMin());
+                ret = new AppDent(paName, a.getDocName(), a.getDay(), a.getMonth(), a.getYear(), a.getDebutHour(), a.getDebutMin());
                 this.addApp(ret);
                 break;
 
@@ -70,7 +76,7 @@ public class AppCalChiro extends TreeSet<AppChiro> {
                 int month = sc.nextInt();
                 System.out.println("What is the day ?");
                 int day = sc.nextInt();
-                ret = new AppChiro(a.getPaName(), a.getDocName(), day, month, year, a.getDebutHour(), a.getDebutMin());
+                ret = new AppDent(a.getPaName(), a.getDocName(), day, month, year, a.getDebutHour(), a.getDebutMin());
                 this.addApp(ret);
                 break;
 
@@ -80,7 +86,7 @@ public class AppCalChiro extends TreeSet<AppChiro> {
                 int hour = sc.nextInt();
                 System.out.println("What is the minute ?");
                 int min = sc.nextInt();
-                ret = new AppChiro(a.getPaName(), a.getDocName(), a.getDay(), a.getMonth(), a.getYear(), hour, min);
+                ret = new AppDent(a.getPaName(), a.getDocName(), a.getDay(), a.getMonth(), a.getYear(), hour, min);
                 this.addApp(ret);
                 break;
 
@@ -88,7 +94,7 @@ public class AppCalChiro extends TreeSet<AppChiro> {
             case ("duration"):
                 System.out.println("What duration do you want ?");
                 int dur = sc.nextInt();
-                ret = new AppChiro(a.getPaName(), a.getDocName(), a.getDay(), a.getMonth(), a.getYear(), a.getDebutHour(), a.getDebutMin(), dur);
+                ret = new AppDent(a.getPaName(), a.getDocName(), a.getDay(), a.getMonth(), a.getYear(), a.getDebutHour(), a.getDebutMin(), dur);
                 this.addApp(ret);
                 break;
         }
@@ -103,5 +109,4 @@ public class AppCalChiro extends TreeSet<AppChiro> {
             System.out.println("Saved appointement : " + ret);
         }
     }
-
 }

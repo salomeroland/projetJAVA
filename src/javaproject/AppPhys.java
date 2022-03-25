@@ -9,7 +9,7 @@ package javaproject;
  *
  * @author Doriane Lami
  */
-public class AppPhys extends App { //Rendez-vous généraliste
+public class AppPhys extends Appointment { //Rendez-vous généraliste
 
 
     //durée par défaut (20 min) ou durée spécifique
