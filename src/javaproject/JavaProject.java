@@ -37,8 +37,11 @@ public class JavaProject {
 //        System.out.println(calDent);    //affiche calendrier
 //        calDent.modApp(rdvDent);      //modifier calendrier
 //        System.out.println(calDent);      //affiche calendrier modifié
-        Appointment app = Appointment.newAppointment();
+        AppChiro app = AppChiro.newAppointment();
         System.out.println(app);
+////        
+//        User.register("Francis","12345");
+//        User.login("Francis","12345");
     }
     
 }
