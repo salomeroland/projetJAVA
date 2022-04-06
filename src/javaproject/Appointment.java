@@ -92,9 +92,32 @@ public class Appointment implements Comparable<Appointment> { // Classe rendez-v
         int hour = sc.nextInt();
         System.out.println("minute : ");
         int min = sc.nextInt();
-        
-        Appointment app = new Appointment("patient", "doctor", day, month, year, hour, min);
+                
+        Appointment app = new Appointment(patient, doctor, day, month, year, hour, min);
         return app;
+    }
+    
+        public boolean isCompatible(Appointment check, Calendar cal) {
+        // app est un rdv du carnet
+        // check est le rdv à tester avant de pouvoir l'intégrer au carnet
+
+        boolean compatible = true; //drapeau pour tester la compatibilité du rdv avec le reste du calendrier
+        for (Appointment app : cal) {
+            if ((app.getYear() == check.getYear()) && (app.getMonth() == check.getMonth()) && (app.getDay() == check.getDay())) {
+                if (app.finalHour(app) > check.getDebutHour()) { //l'heure de fin de app dépasse le début de check
+                    compatible = false;
+                } else if (check.finalHour(app) > app.getDebutHour()) { //l'heure de  fin de check dépasse le début de app
+                    compatible = false;
+                } else if (app.finalHour(app) == check.getDebutHour()) {  // app et check sont placés sur la même heure
+                    if (app.finalMin(app) >= check.getDebutMin()) {  //la minute de fin de app est supérieure à la minute de début de check
+                        compatible = false;
+                    } else if (check.finalMin(app) >= app.getDebutMin()) {  //la minute de fin de check est supérieure à la minute de début de app
+                        compatible = false;
+                    }
+                }
+            }
+        }
+        return compatible;
     }
 
     public int compareTo(Appointment o) {
