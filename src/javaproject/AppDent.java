@@ -31,50 +31,36 @@ public class AppDent extends Appointment {
 
         String retour;
         retour = super.toString();
-        retour = retour + ", duration: " + duration + " min";
+        retour = "Dentist appointement [ " + retour + ", duration: " + duration + " min" + "]";
         return retour;
 
     }
 
-    public static AppDent newAppointment() throws AppException {
-        
-        int dur = 0;
 
-        Scanner sc;
-        sc = new Scanner(System.in);
-        System.out.println("Creation of a new appointment");
-
-        System.out.println("What is the patient's name ?");
-        String patient = sc.next();
-
-        System.out.println("What is the doctor's name ?");
-        String doctor = sc.next();
-
-        System.out.println("When will the appointment take place ?");
-        System.out.println("year : ");
-        int year = sc.nextInt();
-        System.out.println("month : ");
-        int month = sc.nextInt();
-        System.out.println("day : ");
-        int day = sc.nextInt();
-        System.out.println("When will the appointment start ?");
-        System.out.println("hour : ");
-        int hour = sc.nextInt();
-        System.out.println("minute : ");
-        int min = sc.nextInt();
-
-        System.out.println("The default duration is 30 minutes. Do you want an other duration ? (yes / no)");
-        String ret = sc.next();
-        if (ret.equals("yes")) {
-            System.out.println("Enter the new duration : ");
-            dur = sc.nextInt();
-        } else if (ret.equals("no")) {
-            dur = 30;
-        }
-
-        AppDent app = new AppDent(patient, doctor, day, month, year, hour, min, dur);
-        System.out.println(app.getClass()); //à retirer, seulement pour vérification
-        return app;
-    }
+//    public boolean isCompatible(AppDent check, CalendarDentist cal) throws AppException {
+//        // app est un rdv du carnet
+//        // check est le rdv à tester avant de pouvoir l'intégrer au carnet
+//
+//        boolean compatible = true; //drapeau pour tester la compatibilité du rdv avec le reste du calendrier
+//        for (AppDent app : cal) {
+//            if ((app.getYear() == check.getYear()) && (app.getMonth() == check.getMonth()) && (app.getDay() == check.getDay())) {
+//                if (app.finalHour(app) > check.getDebutHour()) { //l'heure de fin de app dépasse le début de check
+//                    compatible = false;
+//                } else if (check.finalHour(app) > app.getDebutHour()) { //l'heure de  fin de check dépasse le début de app
+//                    compatible = false;
+//                } else if (app.finalHour(app) == check.getDebutHour()) {  // app et check sont placés sur la même heure
+//                    if (app.finalMin(app) >= check.getDebutMin()) {  //la minute de fin de app est supérieure à la minute de début de check
+//                        compatible = false;
+//                    } else if (check.finalMin(app) >= app.getDebutMin()) {  //la minute de fin de check est supérieure à la minute de début de app
+//                        compatible = false;
+//                    }
+//                }
+//            }
+//            if (compatible = false) {
+//                throw new AppException("Two appointments can't take place at the same time");
+//            }
+//        }
+//        return compatible;
+//    }
 
 }

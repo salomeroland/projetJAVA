@@ -14,8 +14,7 @@ import java.util.TreeSet;
  */
 public class CalendarDentist extends TreeSet<AppDent> {
 
-    public CalendarDentist() throws AppException {
-    }
+    public CalendarDentist() throws AppException {}
 
     @Override
     public String toString() {
@@ -28,11 +27,9 @@ public class CalendarDentist extends TreeSet<AppDent> {
     }
 
     public void addApp(AppDent a) throws AppException {
-        if (isCompatible(a)) {
+        if (isCompatible(a,this)) {
             this.add(a);
-        } else {
-            throw new AppException("Two appointments can't take place at the same time");
-        }
+        } 
     }
 
     public void delApp(AppDent a) throws AppException {

@@ -32,50 +32,9 @@ public class AppChiro extends Appointment {
 
         String retour;
         retour = super.toString();
-        retour = retour + ", duration: " + duration + " min";
+        retour = "Chiropractor appointement [ " +retour + ", duration: " + duration + " min" + "]";
         return retour;
 
     }
     
-    public static AppChiro newAppointment() throws AppException {
-        
-        int dur = 0;
-
-        Scanner sc;
-        sc = new Scanner(System.in);
-        System.out.println("Creation of a new appointment");
-
-        System.out.println("What is the patient's name ?");
-        String patient = sc.next();
-
-        System.out.println("What is the doctor's name ?");
-        String doctor = sc.next();
-
-        System.out.println("When will the appointment take place ?");
-        System.out.println("year : ");
-        int year = sc.nextInt();
-        System.out.println("month : ");
-        int month = sc.nextInt();
-        System.out.println("day : ");
-        int day = sc.nextInt();
-        System.out.println("When will the appointment start ?");
-        System.out.println("hour : ");
-        int hour = sc.nextInt();
-        System.out.println("minute : ");
-        int min = sc.nextInt();
-
-        System.out.println("The default duration is 45 minutes. Do you want an other duration ? (yes / no)");
-        String ret = sc.next();
-        if (ret.equals("yes")) {
-            System.out.println("Enter the new duration : ");
-            dur = sc.nextInt();
-        } else if (ret.equals("no")) {
-            dur = 45;
-        }
-
-        AppChiro app = new AppChiro(patient, doctor, day, month, year, hour, min, dur);
-        System.out.println(app.getClass()); //à retirer, seulement pour vérification
-        return app;
-    }
-
 }
