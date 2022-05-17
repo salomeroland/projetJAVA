@@ -76,6 +76,12 @@ public class Appointment implements Comparable<Appointment> { // Classe rendez-v
         System.out.println("Creation of a new appointment");
         System.out.println("Do you want to take an appointemetn with a physician, a dentist or a chiropractor ?");
         String profession = sc.next();
+        while (!(profession.equals("chiropractor") || profession.equals("physician") || profession.equals("dentist"))) {
+            System.out.println("You have to choose a profession between physician, chiroprator or dentist");
+            System.out.println("Who do you want to take an appointemetn with ?");
+            String professionCorrecte = sc.next();
+            profession = professionCorrecte;
+        }
 
         System.out.println("What is the patient's name ?");
         String patient = sc.next();
@@ -136,7 +142,9 @@ public class Appointment implements Comparable<Appointment> { // Classe rendez-v
                 System.out.println(app);
                 break;
             }
+
         }
+
         return app;
     }
 
@@ -268,8 +276,8 @@ public class Appointment implements Comparable<Appointment> { // Classe rendez-v
     public static void main(String[] args) throws AppException {
         Appointment app = Appointment.newAppointment();
         System.out.println(app.getClass());
-//        if (app instanceof AppDent) {
-//            AppDent ad = (AppDent) app;
-//        }
+        if (app instanceof AppDent) {
+            AppDent ad = (AppDent) app;
+        }
     }
 }
