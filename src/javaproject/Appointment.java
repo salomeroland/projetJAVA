@@ -14,7 +14,6 @@ import java.util.Scanner;
 public class Appointment implements Comparable<Appointment> { // Classe rendez-vous
     //abstract ?
 
-    //Format date !
     protected String paName;
     protected String docName;
     protected int debutHour;

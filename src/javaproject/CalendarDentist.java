@@ -27,9 +27,9 @@ public class CalendarDentist extends TreeSet<AppDent> {
     }
 
     public void addApp(AppDent a) throws AppException {
-        if (isCompatible(a,this)) {
+//        if (a.isCompatible(this)) {
             this.add(a);
-        } 
+//        } 
     }
 
     public void delApp(AppDent a) throws AppException {
