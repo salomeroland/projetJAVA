@@ -5,6 +5,7 @@
  */
 package javaproject;
 
+import java.util.Scanner;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -32,16 +33,21 @@ public class AppointmentTest {
         assertEquals(expResult, result);
        
     }
-//
-//    @Test
-//    public void testNewAppointment() throws Exception {
-//        System.out.println("newAppointment");
-//        String expResult = "Salomé", "Sam", 23, 05, 2022, 10, 45, 20;
-//        Appointment result = Appointment.newAppointment();
-//        assertEquals(expResult, result);
-//       
-//    }
-//
+    
+    public void testNewAppoitment() throws AppException {
+        appointment = NewAppointment 
+    }
+
+    // @Test
+    //   public void testNewAppointment() throws Exception {
+    //    Scanner keyboard = new Scanner(System.in);
+     //   System.out.println("newAppointment");
+    //    String expResult = "Salomé", "Sam", 23, 05, 2022, 10, 45, 20;
+    //    Appointment result = Appointment.newAppointment();
+     //   assertEquals(expResult, result);
+       
+    //}
+
     @Test
     public void testCompareTo() throws AppException {
         System.out.println("compareTo");
