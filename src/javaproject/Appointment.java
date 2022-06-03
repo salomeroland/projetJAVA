@@ -24,7 +24,7 @@ public class Appointment implements Comparable<Appointment> { // Classe rendez-v
     protected int month;
     protected int day;
     protected int duration;
-    
+    /*
     public Appointment(String patient, String doc, int d, int m, int y, int hour, int min) throws AppException {
 
         if (hour < 8) {  //rdv avant 8h
@@ -43,7 +43,7 @@ public class Appointment implements Comparable<Appointment> { // Classe rendez-v
         day = d;
 
     }
-
+*/
     public Appointment(String patient, String doc, int d, int m, int y, int hour, int min, int dur) throws AppException {
 
         if (hour < 8) {  //rdv avant 8h
@@ -62,6 +62,10 @@ public class Appointment implements Comparable<Appointment> { // Classe rendez-v
         day = d;
         duration = dur;
 
+    }
+
+    Appointment(String salomé, String sam, int i, int i0, int i1, int i2, int i3) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     public String toString() {
@@ -92,8 +96,10 @@ public class Appointment implements Comparable<Appointment> { // Classe rendez-v
         int hour = sc.nextInt();
         System.out.println("minute : ");
         int min = sc.nextInt();
+        System.out.println("duration : ");
+        int duration = sc.nextInt(); 
         
-        Appointment app = new Appointment("patient", "doctor", day, month, year, hour, min);
+        Appointment app = new Appointment(patient, doctor, day, month, year, hour, min, duration );
         return app;
     }
 

@@ -28,11 +28,11 @@ public class CalendarDentist extends TreeSet<AppDent> {
     }
 
     public void addApp(AppDent a) throws AppException {
-        if (isCompatible(a)) {
+  //      if (isCompatible(a)) {
             this.add(a);
-        } else {
-            throw new AppException("Two appointments can't take place at the same time");
-        }
+ //       } else {
+  //          throw new AppException("Two appointments can't take place at the same time");
+ //       }
     }
 
     public void delApp(AppDent a) throws AppException {
